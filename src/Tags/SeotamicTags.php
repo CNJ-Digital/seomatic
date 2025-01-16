@@ -3,7 +3,6 @@
 namespace Cnj\Seotamic\Tags;
 
 use Illuminate\Support\Arr;
-use Statamic\Facades\Blink;
 
 class SeotamicTags extends Tags
 {
@@ -53,11 +52,9 @@ class SeotamicTags extends Tags
 
     protected function values(): array
     {
-        return Blink::once('seotamic::values', function () {
-            return [
-                'meta' => $this->context->value('seotamic_meta'),
-                'social' => $this->context->value('seotamic_social')
-            ];
-        });
+        return [
+            'meta' => $this->context->value('seotamic_meta'),
+            'social' => $this->context->value('seotamic_social')
+        ];
     }
 }
